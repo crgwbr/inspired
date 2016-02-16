@@ -68,11 +68,9 @@ services:
       - redis
 
   node:
-    build:
-      context: .
-      dockerfile: docker/node/Dockerfile
-    command: npm run grunt
-    environment:
-      NODE_PATH: ./client/src/js/
+    build: .
+    command: npm run grunt-debug
     volumes:
       - .:/code
+    environment:
+      NODE_PATH: ./client/src/js/
