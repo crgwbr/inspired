@@ -1,0 +1,121 @@
+.content {
+    @extend %clearfix;
+}
+
+.chapterNum {
+    a {
+        color: $color-text-subtle;
+        text-decoration: none;
+    }
+}
+
+.verseNum {
+    display: inline-block;
+    margin-left: 3px;
+    text-indent: 0;
+
+    a {
+        font-size: 0.6rem;
+        text-decoration: none;
+        color: $color-text-subtle;
+        position: relative;
+        left: 3px;
+    }
+}
+
+.view-chapter-set {
+    @extend %clearfix;
+}
+
+.view-chapter {
+    @include span(6);
+    &:last-child {
+        @include span(6 omega);
+    }
+    &:first-child {
+        @include span(6 alpha);
+    }
+
+    h2 {
+        margin-bottom: 2rem;
+    }
+    .verses {
+        @include span(8 alpha);
+    }
+    .references {
+        @include span(4 omega);
+    }
+}
+
+.view-verse {
+    -webkit-transition: color 0.5s;
+    transition: color 0.5s;
+    &.dim {
+        color: lighten($color-text, 50%);
+    }
+    &.focus {
+        color: darken($color-text, 30%);
+    }
+
+    a.marginal-ref,
+    a.footnote {
+        font-size: 1rem;
+        text-decoration: none;
+        color: rgba($color-text-accent, 0.3);
+        &:hover,
+        &:active,
+        &:focus {
+            color: rgba($color-text-accent, 1);
+        }
+    }
+
+    span.style-l,
+    span.style-z {
+        display: block;
+        text-indent: -3em;
+        padding-left: 3em;
+    }
+    span.style-z {
+        text-indent: -1.5em;
+    }
+    span.parabreak {
+        display: block;
+        height: 0;
+    }
+    .verse > span.parabreak:last-child {
+        height: 0.5rem;
+    }
+}
+
+.references {
+    h3 {
+        margin-top: 0;
+    }
+
+    h4 {
+        margin-bottom: 0;
+    }
+
+    p {
+        margin-top: 0.25rem;
+    }
+
+    .chapterNum {
+        a {
+            font-size: 1rem;
+            padding-right: 0;
+            color: $color-text-subtle;
+        }
+    }
+
+    a.marginal-ref,
+    a.footnote,
+    a.fnSourceLink {
+        display: none;
+    }
+
+    .viewport-stick {
+        background-color: $color-border-light;
+        padding: 1rem;
+    }
+}

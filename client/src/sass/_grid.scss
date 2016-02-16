@@ -1,0 +1,13 @@
+$max-width: 1200px;
+
+$susy: (
+    columns: 12
+);
+
+@import '../../../node_modules/susy/sass/_susy';
+@import '../../../node_modules/breakpoint-sass/stylesheets/_breakpoint';
+
+
+#inspired-app {
+    @include container($max-width);
+}

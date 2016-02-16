@@ -1,0 +1,35 @@
+---
+
+- model: bible.Language
+  pk: 1
+  fields:
+    iso_2_code: en
+    wt_code: E
+    name: English
+    edition_api: https://www.jw.org/en/publications/bible/json/
+
+
+- model: bible.Translation
+  pk: 1
+  fields:
+    symbol: nwt
+- model: bible.Translation
+  pk: 2
+  fields:
+    symbol: bi10
+- model: bible.Translation
+  pk: 3
+  fields:
+    symbol: by
+- model: bible.Translation
+  pk: 4
+  fields:
+    symbol: bi22
+
+
+
+- model: bible.VerseRelationshipType
+  pk: 1
+  fields:
+    name: Marginal Reference
+    code: xref

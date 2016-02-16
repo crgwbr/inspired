@@ -1,0 +1,78 @@
+version: '2'
+services:
+  db:
+    image: postgres:9.4
+  search:
+    image: elasticsearch:1
+  redis:
+    image: redis:3
+  queue:
+    image: rabbitmq:3.5-management
+    environment:
+      RABBITMQ_DEFAULT_USER: rabbit
+      RABBITMQ_DEFAULT_PASS: hare
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+  flower:
+    image: totem/celery-flower-docker
+    depends_on:
+      - queue
+    environment:
+      FLOWER_PORT: 5555
+      AMQP_HOST: queue
+      AMQP_USERNAME: rabbit
+      AMQP_PASSWORD: hare
+      AMQP_ADMIN_HOST: queue
+      AMQP_ADMIN_USERNAME: rabbit
+      AMQP_ADMIN_PASSWORD: hare
+      FLOWER_BASIC_AUTH: root:root
+    ports:
+      - "5555:5555"
+
+  web:
+    build: .
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - .:/code
+    environment:
+      SECRET_KEY: '2kyz=^e#+k2m4&oeqw@(@hmgv3%7=(a&m!icr@!hniub2x70xy'
+      DATABASE_URL: postgres://postgres@db:5432/postgres
+      BROKER_URL: amqp://rabbit:hare@queue:5672//
+      ELASTIC_URL: http://search:9200/
+      REDIS_URL: redis:6379
+    depends_on:
+      - db
+      - queue
+      - search
+      - redis
+    ports:
+      - "8000:8000"
+
+  worker:
+    build: .
+    command: celery -l INFO -c 10 -A inspired worker
+    volumes:
+      - .:/code
+    environment:
+      SECRET_KEY: '2kyz=^e#+k2m4&oeqw@(@hmgv3%7=(a&m!icr@!hniub2x70xy'
+      DATABASE_URL: postgres://postgres@db:5432/postgres
+      BROKER_URL: amqp://rabbit:hare@queue:5672//
+      ELASTIC_URL: http://search:9200/
+      REDIS_URL: redis:6379
+      C_FORCE_ROOT: 'true'
+    depends_on:
+      - db
+      - queue
+      - search
+      - redis
+
+  node:
+    build:
+      context: .
+      dockerfile: docker/node/Dockerfile
+    command: npm run grunt
+    environment:
+      NODE_PATH: ./client/src/js/
+    volumes:
+      - .:/code

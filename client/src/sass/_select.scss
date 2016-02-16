@@ -1,0 +1,58 @@
+label {
+    font-size: 0.8rem;
+    font-family: $font-family-ui;
+}
+
+.select {
+    position: relative;
+    display: block;
+    margin-top: 0.5rem;
+    padding: 0;
+    cursor: pointer;
+    &:hover {
+        background-color: $color-border-light;
+    }
+
+    select {
+        width: 100%;
+        margin: 0;
+        background: none;
+        border: 1px solid $color-border;
+        border-radius: 0;
+        outline: none;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        appearance: none;
+        -webkit-appearance: none;
+        font-size: 0.8rem;
+        font-family: $font-family-ui;
+        font-weight: normal;
+        color: $color-text;
+        padding: 10px 30px 10px 10px;
+        line-height: $line-height;
+
+        &:focus {
+            outline:none;
+        }
+
+        option {
+            font-weight:normal;
+        }
+    }
+
+    &::after {
+        content: "";
+        position: absolute;
+        width: 9px;
+        height: 8px;
+        top: 50%;
+        right: 10px;
+        margin-top: -5px;
+        background-image: url(../img/arrow.svg);
+        background-repeat: no-repeat;
+        background-size: 100%;
+        z-index: 2;
+        pointer-events:none;
+    }
+}

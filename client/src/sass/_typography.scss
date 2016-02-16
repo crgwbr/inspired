@@ -1,0 +1,11 @@
+body {
+    font-family: $font-family-body;
+    font-size: $font-size-base;
+    line-height: $line-height;
+    color: $color-text;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: $font-family-heading;
+    font-style: italic;
+}

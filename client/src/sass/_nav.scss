@@ -1,0 +1,26 @@
+.nav-bar {
+    @extend %clearfix;
+    margin-top: 0;
+    margin-bottom: 2rem;
+
+    .brand {
+        @include span(2 alpha);
+        h1 {
+            margin: 2rem 0 0 0;
+            font-size: 2rem;
+        }
+    }
+
+    .edition-selector {
+        @include span(6);
+    }
+
+    .chapter-selector {
+        @include span(4 omega);
+    }
+
+    label {
+        display: inline-block;
+        margin-top: 1rem;
+    }
+}

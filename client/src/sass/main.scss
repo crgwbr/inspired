@@ -1,0 +1,42 @@
+$font-family-body: 'Merriweather', 'Georgia', serif;
+$font-family-heading: 'Merriweather', 'Georgia', serif;
+$font-family-ui: 'Helvetica', 'Arial', sans-serif;
+$font-size-base: 14px;
+$line-height: 1.6;
+
+$color-text: #333;
+$color-text-subtle: #666;
+$color-text-accent: #CC0000;
+$color-border: #CCC;
+$color-border-light: #EEE;
+
+
+%clearfix {
+    &:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+}
+
+
+* {
+    box-sizing: border-box;
+}
+
+
+.viewport-stick {
+    position: relative;
+    &.viewport-stick-loaded {
+        -webkit-transition: top 0.5s;
+        transition: top 0.5s;
+    }
+}
+
+
+@import '_select';
+@import '_grid';
+@import '_typography';
+
+@import '_nav';
+@import '_content';
