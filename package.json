@@ -1,0 +1,35 @@
+{
+  "name": "inspired",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "grunt-debug": "grunt --debug",
+    "grunt": "grunt"
+  },
+  "author": "Craig Weber <crgwbr@gmail.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-browserify": "^4.0.1",
+    "grunt-cli": "^0.1.13",
+    "grunt-contrib-jshint": "^0.12.0",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-nunjucks": "^0.1.4",
+    "grunt-sass": "^1.1.0"
+  },
+  "dependencies": {
+    "backbone": "^1.2.3",
+    "backbone.marionette": "^2.4.4",
+    "backbone.paginator": "^2.0.3",
+    "backbone.stickit": "^0.9.2",
+    "breakpoint-sass": "^2.6.1",
+    "grunt-contrib-copy": "^0.8.2",
+    "grunt-contrib-uglify": "^0.11.1",
+    "jquery": "^2.2.0",
+    "nunjucks": "^1.3.4",
+    "susy": "^2.2.12",
+    "underscore": "^1.8.3"
+  }
+}
