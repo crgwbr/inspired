@@ -110,7 +110,6 @@ def index_refs(chapter):
             update_xrefs(chapter.book.edition, verse, soup)
             verse.content = str(soup)
             verse.save()
-            print(verse.content)
 
 
 def update_footnote_refs(edition, verse, soup):
