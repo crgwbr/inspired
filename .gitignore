@@ -1,4 +1,5 @@
 celerybeat-*
+public
 
 # Created by https://www.gitignore.io/api/osx,linux,sublimetext,python,node
 

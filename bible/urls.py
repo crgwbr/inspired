@@ -16,5 +16,5 @@ router.register(r'verse-relationship-types', viewsets.VerseRelationshipType)
 
 urlpatterns = [
     url(r'^api/', include(router.urls)),
-    url(r'^', views.RootView.as_view()),
+    url(r'^$', views.RootView.as_view()),
 ]

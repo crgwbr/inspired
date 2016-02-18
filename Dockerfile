@@ -49,3 +49,4 @@ ADD . /code/
 # Build assets
 ENV NODE_PATH ./client/src/js/
 RUN npm run build
+RUN python manage.py collectstatic --noinput

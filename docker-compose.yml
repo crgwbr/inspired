@@ -33,6 +33,7 @@ services:
   web:
     build: .
     command: python manage.py runserver 0.0.0.0:8000
+    # command: gunicorn -b 0.0.0.0:8000 -w 3 inspired.wsgi
     volumes:
       - .:/code
     environment:
@@ -41,6 +42,7 @@ services:
       BROKER_URL: amqp://rabbit:hare@queue:5672//
       ELASTIC_URL: http://search:9200/
       REDIS_URL: redis:6379
+      DEBUG: 'true'
     depends_on:
       - db
       - queue
@@ -61,6 +63,7 @@ services:
       ELASTIC_URL: http://search:9200/
       REDIS_URL: redis:6379
       C_FORCE_ROOT: 'true'
+      DEBUG: 'true'
     depends_on:
       - db
       - queue
