@@ -5,7 +5,7 @@ import dj_database_url
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get('SECRET_KEY')
+SECRET_KEY = os.environ.get('SECRET_KEY', '2kyz=^e#+k2m4&oeqw@(@hmgv3%7=(a&m!icr@!hniub2x70xy')
 DEBUG = (os.environ.get('DEBUG') == 'true')
 
 ALLOWED_HOSTS = ['*']

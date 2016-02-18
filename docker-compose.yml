@@ -37,7 +37,6 @@ services:
     volumes:
       - .:/code
     environment:
-      SECRET_KEY: '2kyz=^e#+k2m4&oeqw@(@hmgv3%7=(a&m!icr@!hniub2x70xy'
       DATABASE_URL: postgres://postgres@db:5432/postgres
       BROKER_URL: amqp://rabbit:hare@queue:5672//
       ELASTIC_URL: http://search:9200/
@@ -57,7 +56,6 @@ services:
     volumes:
       - .:/code
     environment:
-      SECRET_KEY: '2kyz=^e#+k2m4&oeqw@(@hmgv3%7=(a&m!icr@!hniub2x70xy'
       DATABASE_URL: postgres://postgres@db:5432/postgres
       BROKER_URL: amqp://rabbit:hare@queue:5672//
       ELASTIC_URL: http://search:9200/
