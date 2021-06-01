@@ -25,4 +25,4 @@ redis==2.10.5
 requests==2.9.1
 simplejson==3.8.1
 static3==0.6.1
-urllib3==1.14
+urllib3==1.26.5
